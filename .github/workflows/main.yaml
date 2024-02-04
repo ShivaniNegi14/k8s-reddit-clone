@@ -13,15 +13,10 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v2
 
-    - name: Set up Docker CLI
-      uses: docker/setup-docker@v2
-      with:
-        docker-version: 20.10.11
-
     - name: Set up Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: '14'
+        node-version: '20'
 
     - name: Install Dependencies
       run: npm install
@@ -39,7 +34,7 @@ jobs:
 
     steps:
     - name: Checkout Repository
-      uses: actions/checkout@v2
+      uses: node16:actions/checkout@v2
 
     - name: Deploy to Minikube
       run: |
