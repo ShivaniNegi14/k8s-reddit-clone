@@ -29,8 +29,8 @@ jobs:
         tags: shivani1711/reddit-clone:latest
 
       env:
-        DOCKER_USERNAME: ${{ secrets.Username }}
-        DOCKER_PASSWORD: ${{ secrets.Password }}
+        DOCKER_USERNAME: ${{ secrets.USERNAME }}
+        DOCKER_PASSWORD: ${{ secrets.PASSWORD }}
 
 
   deploy:
