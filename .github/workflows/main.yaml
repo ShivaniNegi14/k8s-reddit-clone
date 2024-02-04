@@ -52,3 +52,6 @@ jobs:
         kubectl apply -f /home/ubuntu/k8s-reddit-clone/deployment.yaml
         kubectl apply -f /home/ubuntu/k8s-reddit-clone/service.yaml
 
+env:
+  DOCKER_CLI_AGGREGATE: 1
+  DOCKER_BUILDKIT: 1
