@@ -24,7 +24,7 @@ jobs:
     - name: Build Docker Image
       run: 
         docker build -t shivani1711/k8s-reddit-clone:latest .
-        docker login -U ${{ secrets.Username }} -p ${{ secrets.Password }}
+        docker login --username ${{ secrets.Username }} -p ${{ secrets.Password }}
         docker push shivani1711/k8s-reddit-clone:latest
 
   deploy:
