@@ -24,7 +24,7 @@ jobs:
     - name: Set up Docker CLI
       uses: docker/setup-docker@v2
       with:
-        docker-version: 20.10.11  # Use the specific Docker CLI version
+        docker-version:  24.0.5  # Use the specific Docker CLI version
 
     - name: Configure Docker Credentials
       run: |
