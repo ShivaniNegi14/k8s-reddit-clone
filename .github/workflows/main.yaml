@@ -43,11 +43,18 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v2
 
-    - name: Deploy to Minikube
+    - name: Install AWS CLI
       run: |
-        kubectl apply -f /home/ubuntu/k8s-reddit-clone/deployment.yaml
-        kubectl apply -f /home/ubuntu/k8s-reddit-clone/service.yaml
+        sudo apt-get update
+        sudo apt-get install -y awscli
 
+    - name: Configure AWS Credentials
+      run: aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }} && aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }} && aws configure set region ${{ secrets.AWS_DEFAULT_REGION }}
+
+    - name: Deploy to EC2 Instance
+      run: |
+        kubectl apply -f deployment.yml
+        kubectl apply -f service.yml
 env:
   DOCKER_CLI_AGGREGATE: 1
   DOCKER_BUILDKIT: 1
